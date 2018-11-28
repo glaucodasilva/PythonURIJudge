@@ -1,2 +1,9 @@
-teste
-planeta 21
+Terra
+Marte
+Venus
+Mercurio
+Plutão
+Saturno
+Netuno
+Urano
+Jupter
