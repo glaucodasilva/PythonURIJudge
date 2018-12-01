@@ -1,30 +1,19 @@
-def fib(x):
-    global call, vet, cont
-    call = call + 1
-    if vet[x] >= 0:
-        return vet[x]
+def fibonacci(n):
+    if n in previous.keys():
+        if n not in (diccall.keys()):
+            diccall[n] = 2 * diccall[n - 1] - diccall[n - 3]
+        return previous[n]
     else:
-        if x == 0:
-            cont[0] = 0
-            vet[0] = 0
-            return 0
-        elif x == 1:
-            cont[1] = 0
-            vet[1] = 1
-            return 1
-        elif 1 <= x <= 39:
-            cont[x] = call
-            vet[x] = fib(x-1) + fib(x-2)
-            return vet[x]
+        newValue = fibonacci(n-1) + fibonacci(n-2)
+        previous[n] = newValue
+        if n not in (diccall.keys()):
+            diccall[n] = 2 * diccall[n - 1] - diccall[n - 3]
+        return newValue
 
-
-#PRINCIPAL
-entradas = int(input())
-for i in range(0,entradas):
-    call = -1
-    valor = int(input())
-    vet = [-1] * (valor + 1)
-    cont = [0] * (valor + 1)
-    final = fib(valor)
-    print("fib(",valor,") =",call,"calls =",final)
-    print(cont)
+n = int(input())
+for i in range(n):
+    previous = {0: 1, 1: 1}
+    diccall = {0: 0, 1: 0, 2: 2}
+    val = int(input())
+    fibo = fibonacci(val)
+    print('fib(%d) = %d calls = %d' %(val, diccall[val], previous[val-1]))
