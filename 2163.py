@@ -1,4 +1,4 @@
-l, c = list(map(int, input().split()))
+l, c = map(int, input().split())
 terreno = []
 for i in range(l):
     terreno.append(list(map(int, input().split())))
